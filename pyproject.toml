@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yobyt5"
+version = "1.0.0"
+description = "Evaluation and training code for Yo-ByT5, a byte-level Yorùbá diacritic restoration model"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "sacrebleu==2.6.0",
+]
+
+[project.optional-dependencies]
+generate = ["torch", "transformers>=4.46,<5"]
+train = ["torch_xla", "datasets", "transformers==4.53.3"]
+
+[tool.setuptools]
+packages = ["yobyt5"]
